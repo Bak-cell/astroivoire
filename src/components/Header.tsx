@@ -18,9 +18,13 @@ const Header = () => {
     <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-cosmic-purple to-cosmic-blue rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🌟</span>
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/6b0b0b8e-dcb8-4c23-aedb-12cca088a5ac.png" 
+                alt="Logo AIA"
+                className="w-12 h-12 object-contain"
+              />
             </div>
             <div>
               <h1 className="font-space font-bold text-xl text-cosmic-purple">AIA</h1>
