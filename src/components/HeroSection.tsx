@@ -18,8 +18,22 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen cosmic-bg star-field flex items-center justify-center text-white overflow-hidden">
-      {/* Animated stars */}
+    <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+      {/* Background image astronomique */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
+        }}
+      />
+      
+      {/* Dark overlay pour améliorer la lisibilité */}
+      <div className="absolute inset-0 bg-black/50" />
+      
+      {/* Gradient overlay pour plus de profondeur */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+
+      {/* Animated stars supplémentaires */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-2 h-2 bg-white rounded-full animate-twinkle"></div>
         <div className="absolute top-32 right-20 w-1 h-1 bg-cosmic-gold rounded-full animate-twinkle" style={{animationDelay: '0.5s'}}></div>
@@ -35,15 +49,15 @@ const HeroSection = () => {
             <div className="text-6xl mb-4 animate-float">🌟</div>
           </div>
           
-          <h1 className={`font-space text-4xl md:text-6xl font-bold mb-6 leading-tight transition-all duration-1000 delay-200 ${
+          <h1 className={`font-space text-4xl md:text-6xl font-bold mb-6 leading-tight transition-all duration-1000 delay-200 text-white drop-shadow-2xl ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+          }`} style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Faisons briller les étoiles au cœur de l'Afrique
           </h1>
           
-          <p className={`text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${
+          <p className={`text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-400 text-white drop-shadow-lg ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+          }`} style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
             L'Association Ivoirienne d'Astronomie (AIA) vous invite à lever les yeux vers le ciel pour explorer, apprendre et inspirer. Ensemble, développons la culture scientifique et spatiale en Côte d'Ivoire.
           </p>
           
@@ -52,16 +66,8 @@ const HeroSection = () => {
           }`}>
             <Button 
               size="lg" 
-              onClick={() => scrollToSection('join')}
-              className="bg-cosmic-gold hover:bg-cosmic-gold/90 text-cosmic-purple font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            >
-              Nous rejoindre
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
               onClick={() => scrollToSection('about')}
-              className="border-2 border-cosmic-gold text-cosmic-gold hover:bg-cosmic-gold hover:text-cosmic-purple px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl font-semibold"
+              className="bg-cosmic-gold hover:bg-cosmic-gold/90 text-cosmic-purple font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               Découvrir l'AIA
             </Button>
@@ -74,7 +80,8 @@ const HeroSection = () => {
             <Button 
               variant="ghost"
               onClick={() => scrollToSection('about')}
-              className="text-cosmic-gold hover:text-white hover:bg-cosmic-gold/20 transition-all duration-300 animate-pulse"
+              className="text-white hover:text-cosmic-gold hover:bg-white/10 transition-all duration-300 animate-pulse backdrop-blur-sm"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.6)' }}
             >
               <ChevronDown className="mr-2" size={20} />
               Découvrez qui nous sommes
@@ -88,7 +95,7 @@ const HeroSection = () => {
       <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-all duration-1000 delay-1000 ${
         isLoaded ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center backdrop-blur-sm bg-white/10">
           <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
         </div>
       </div>
