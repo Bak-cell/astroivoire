@@ -28,19 +28,19 @@ const PhotoGallery = () => {
 
   const photos = [
     {
-      src: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=800&h=600&fit=crop",
-      alt: "Observation nocturne des étoiles",
-      title: "Soirée d'observation"
+      src: "/lovable-uploads/8bfddae1-f69b-4622-9678-10e15e28f463.png",
+      alt: "Équipe AIA ASTROTOUR",
+      title: "Équipe ASTROTOUR édition Ivoire"
     },
     {
-      src: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=800&h=600&fit=crop",
-      alt: "Télescope sous les étoiles",
-      title: "Équipement d'observation"
+      src: "/lovable-uploads/7db4ae90-b794-4a58-9c4b-77782a671db1.png",
+      alt: "Observation astronomique avec télescopes",
+      title: "Séance d'observation nocturne"
     },
     {
-      src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=600&fit=crop",
-      alt: "Paysage nocturne",
-      title: "Site d'observation"
+      src: "/lovable-uploads/a8fc95ab-9011-4812-8661-8d96471e08db.png",
+      alt: "Activité éducative spatiale",
+      title: "Atelier pédagogique spatial"
     },
     {
       src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop",
