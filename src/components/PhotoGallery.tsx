@@ -1,0 +1,153 @@
+
+import { useState, useEffect, useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+
+const PhotoGallery = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const photos = [
+    {
+      src: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=800&h=600&fit=crop",
+      alt: "Observation nocturne des étoiles",
+      title: "Soirée d'observation"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=800&h=600&fit=crop",
+      alt: "Télescope sous les étoiles",
+      title: "Équipement d'observation"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=600&fit=crop",
+      alt: "Paysage nocturne",
+      title: "Site d'observation"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop",
+      alt: "Vue panoramique",
+      title: "Horizon astronomique"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
+      alt: "Coucher de soleil",
+      title: "Transition jour-nuit"
+    }
+  ];
+
+  const nextImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage + 1) % photos.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage(selectedImage === 0 ? photos.length - 1 : selectedImage - 1);
+    }
+  };
+
+  return (
+    <section id="gallery" className="py-20 bg-gray-50" ref={sectionRef}>
+      <div className="container mx-auto px-4">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <h2 className="font-space text-4xl font-bold text-cosmic-purple mb-4">
+            Galerie photos
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cosmic-purple to-cosmic-gold mx-auto mb-8"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Découvrez nos observations, événements et moments partagés sous les étoiles
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {photos.map((photo, index) => (
+            <Card 
+              key={index}
+              className={`group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-500 hover:scale-105 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{
+                transitionDelay: `${200 + index * 100}ms`
+              }}
+              onClick={() => setSelectedImage(index)}
+            >
+              <CardContent className="p-0">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={photo.src} 
+                    alt={photo.alt}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-white font-semibold text-lg">{photo.title}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Modal pour image agrandie */}
+        {selectedImage !== null && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+            <div className="relative max-w-4xl max-h-full">
+              <img 
+                src={photos[selectedImage].src} 
+                alt={photos[selectedImage].alt}
+                className="max-w-full max-h-full object-contain"
+              />
+              <Button
+                size="icon"
+                variant="outline"
+                className="absolute top-4 right-4 bg-white/20 border-white/30 text-white hover:bg-white/30"
+                onClick={() => setSelectedImage(null)}
+              >
+                <X size={20} />
+              </Button>
+              <Button
+                size="icon"
+                variant="outline"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30"
+                onClick={prevImage}
+              >
+                <ChevronLeft size={20} />
+              </Button>
+              <Button
+                size="icon"
+                variant="outline"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 border-white/30 text-white hover:bg-white/30"
+                onClick={nextImage}
+              >
+                <ChevronRight size={20} />
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default PhotoGallery;

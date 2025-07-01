@@ -1,4 +1,6 @@
 
+import SocialLinks from "./SocialLinks";
+
 const Footer = () => {
   return (
     <footer id="contact" className="bg-cosmic-purple text-white py-16">
@@ -19,6 +21,10 @@ const Footer = () => {
               Démocratiser l'astronomie en Côte d'Ivoire et inspirer les générations futures 
               à explorer l'univers qui nous entoure.
             </p>
+            <div className="mb-6">
+              <h4 className="font-semibold text-lg mb-4">Suivez-nous</h4>
+              <SocialLinks className="text-gray-300" iconSize={24} />
+            </div>
           </div>
 
           {/* Contact Info */}
@@ -27,11 +33,15 @@ const Footer = () => {
             <div className="space-y-3 text-gray-300">
               <div className="flex items-center space-x-2">
                 <span>📧</span>
-                <span>contact.aia.ci@gmail.com</span>
+                <a href="mailto:contact.aia.ci@gmail.com" className="hover:text-cosmic-gold transition-colors">
+                  contact.aia.ci@gmail.com
+                </a>
               </div>
               <div className="flex items-center space-x-2">
                 <span>📱</span>
-                <span>+225 XX XX XX XX</span>
+                <a href="tel:+22501234567" className="hover:text-cosmic-gold transition-colors">
+                  +225 01 23 45 67
+                </a>
               </div>
             </div>
           </div>
@@ -57,16 +67,8 @@ const Footer = () => {
             <p className="text-gray-300 text-sm">
               © 2025 Association Ivoirienne d'Astronomie. Tous droits réservés.
             </p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <div className="text-gray-300 text-sm">
-                Suivez-nous sur les réseaux sociaux
-              </div>
-              <div className="flex space-x-2">
-                <span>🌐</span>
-                <span>📘</span>
-                <span>📷</span>
-                <span>💼</span>
-              </div>
+            <div className="flex items-center space-x-4 mt-4 md:mt-0">
+              <SocialLinks className="text-gray-300" iconSize={16} />
             </div>
           </div>
         </div>

@@ -47,6 +47,12 @@ const Header = () => {
               Activités
             </button>
             <button 
+              onClick={() => scrollToSection('gallery')}
+              className="text-gray-700 hover:text-cosmic-purple transition-colors"
+            >
+              Galerie
+            </button>
+            <button 
               onClick={() => scrollToSection('events')}
               className="text-gray-700 hover:text-cosmic-purple transition-colors"
             >
@@ -90,6 +96,12 @@ const Header = () => {
                 className="text-left text-gray-700 hover:text-cosmic-purple transition-colors"
               >
                 Activités
+              </button>
+              <button 
+                onClick={() => scrollToSection('gallery')}
+                className="text-left text-gray-700 hover:text-cosmic-purple transition-colors"
+              >
+                Galerie
               </button>
               <button 
                 onClick={() => scrollToSection('events')}

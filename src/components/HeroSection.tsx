@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,7 +47,7 @@ const HeroSection = () => {
             L'Association Ivoirienne d'Astronomie (AIA) vous invite à lever les yeux vers le ciel pour explorer, apprendre et inspirer. Ensemble, développons la culture scientifique et spatiale en Côte d'Ivoire.
           </p>
           
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-8 transition-all duration-1000 delay-600 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <Button 
@@ -60,9 +61,24 @@ const HeroSection = () => {
               size="lg" 
               variant="outline" 
               onClick={() => scrollToSection('about')}
-              className="border-white text-white hover:bg-white hover:text-cosmic-purple px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="border-2 border-cosmic-gold text-cosmic-gold hover:bg-cosmic-gold hover:text-cosmic-purple px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl font-semibold"
             >
               Découvrir l'AIA
+            </Button>
+          </div>
+
+          {/* Call to action supplémentaire */}
+          <div className={`transition-all duration-1000 delay-800 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <Button 
+              variant="ghost"
+              onClick={() => scrollToSection('about')}
+              className="text-cosmic-gold hover:text-white hover:bg-cosmic-gold/20 transition-all duration-300 animate-pulse"
+            >
+              <ChevronDown className="mr-2" size={20} />
+              Découvrez qui nous sommes
+              <ChevronDown className="ml-2" size={20} />
             </Button>
           </div>
         </div>
