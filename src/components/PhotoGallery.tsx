@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -41,6 +40,21 @@ const PhotoGallery = () => {
       src: "/lovable-uploads/a8fc95ab-9011-4812-8661-8d96471e08db.png",
       alt: "Activité éducative spatiale",
       title: "Atelier pédagogique spatial"
+    },
+    {
+      src: "/lovable-uploads/50a27443-7d7d-4bde-b527-11b150ae6f7a.png",
+      alt: "Séance éducative avec matériel astronomique",
+      title: "Formation scolaire en astronomie"
+    },
+    {
+      src: "/lovable-uploads/e07a11ec-743f-4c6b-86f7-35ca3075d2fd.png",
+      alt: "Groupe d'étudiants avec télescopes",
+      title: "Initiation astronomique en milieu scolaire"
+    },
+    {
+      src: "/lovable-uploads/8a1bf798-b81b-4f6c-b6a1-a6fec680112f.png",
+      alt: "Démonstration pratique avec télescopes",
+      title: "Atelier pratique d'observation"
     },
     {
       src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop",
