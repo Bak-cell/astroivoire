@@ -1,4 +1,3 @@
-
 import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
@@ -9,8 +8,12 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-12 bg-cosmic-gold rounded-full flex items-center justify-center">
-                <span className="text-cosmic-purple font-bold text-xl">🌟</span>
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/9853356d-36e8-4c7c-bbd5-00a3a9d142fc.png" 
+                  alt="Logo AIA"
+                  className="w-12 h-12 object-contain"
+                />
               </div>
               <div>
                 <h3 className="font-space font-bold text-xl">AIA</h3>

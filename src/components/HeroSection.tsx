@@ -43,11 +43,6 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className={`mb-8 transition-all duration-1000 ${
-            isLoaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
-          }`}>
-            <div className="text-6xl mb-4 animate-float">🌟</div>
-          </div>
           
           <h1 className={`font-space text-4xl md:text-6xl font-bold mb-6 leading-tight transition-all duration-1000 delay-200 text-white drop-shadow-2xl ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
