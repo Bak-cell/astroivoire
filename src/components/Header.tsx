@@ -21,7 +21,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 flex items-center justify-center">
               <img 
-                src="/lovable-uploads/6b0b0b8e-dcb8-4c23-aedb-12cca088a5ac.png" 
+                src="/lovable-uploads/9853356d-36e8-4c7c-bbd5-00a3a9d142fc.png" 
                 alt="Logo AIA"
                 className="w-12 h-12 object-contain"
               />
