@@ -50,21 +50,6 @@ const PhotoGallery = () => {
       src: "/lovable-uploads/e07a11ec-743f-4c6b-86f7-35ca3075d2fd.png",
       alt: "Groupe d'étudiants avec télescopes",
       title: "Initiation astronomique en milieu scolaire"
-    },
-    {
-      src: "/lovable-uploads/8a1bf798-b81b-4f6c-b6a1-a6fec680112f.png",
-      alt: "Démonstration pratique avec télescopes",
-      title: "Atelier pratique d'observation"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=600&fit=crop",
-      alt: "Vue panoramique",
-      title: "Horizon astronomique"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
-      alt: "Coucher de soleil",
-      title: "Transition jour-nuit"
     }
   ];
 
