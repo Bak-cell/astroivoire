@@ -1,4 +1,3 @@
-
 import { Facebook, Instagram, Linkedin, Globe, Youtube, Twitter } from "lucide-react";
 
 interface SocialLinksProps {
@@ -18,7 +17,7 @@ const SocialLinks = ({ className = "", iconSize = 20, showLabels = false }: Soci
     {
       name: "Facebook",
       icon: Facebook,
-      url: "https://facebook.com/AIA.Cote.Ivoire",
+      url: "https://www.facebook.com/Association.Ivoirienne.Astronomie",
       color: "hover:text-blue-600"
     },
     {
