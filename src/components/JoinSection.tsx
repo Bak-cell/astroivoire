@@ -42,7 +42,7 @@ const JoinSection = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <h2 className="font-space text-4xl font-bold mb-4">
-              Devenir membre ou bénévole
+              Devenir membre
             </h2>
             <div className="w-24 h-1 bg-cosmic-gold mx-auto mb-8"></div>
           </div>
@@ -69,26 +69,18 @@ const JoinSection = () => {
                 
                 <div className="bg-white/10 rounded-lg p-6 mb-8 transition-all duration-500 hover:bg-white/20">
                   <p className="text-lg leading-relaxed">
-                    En devenant membre ou bénévole, vous contribuez activement à l'éducation scientifique, 
+                    En devenant membre, vous contribuez activement à l'éducation scientifique, 
                     au développement de l'astronomie et à l'éveil des générations futures.
                   </p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex justify-center">
                   <Button 
                     size="lg" 
                     onClick={() => openForm('member')}
                     className="bg-cosmic-gold hover:bg-cosmic-gold/90 text-cosmic-purple font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   >
                     Je m'engage comme membre
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    onClick={() => openForm('volunteer')}
-                    className="border-white text-white hover:bg-white hover:text-cosmic-purple px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                  >
-                    Devenir bénévole
                   </Button>
                 </div>
               </CardContent>
