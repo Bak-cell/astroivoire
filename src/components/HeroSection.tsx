@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -56,7 +55,7 @@ const HeroSection = () => {
             L'Association Ivoirienne d'Astronomie (AIA) vous invite à lever les yeux vers le ciel pour explorer, apprendre et inspirer. Ensemble, développons la culture scientifique et spatiale en Côte d'Ivoire.
           </p>
           
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-8 transition-all duration-1000 delay-600 ${
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-600 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <Button 
@@ -67,31 +66,6 @@ const HeroSection = () => {
               Découvrir l'AIA
             </Button>
           </div>
-
-          {/* Call to action supplémentaire */}
-          <div className={`transition-all duration-1000 delay-800 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <Button 
-              variant="ghost"
-              onClick={() => scrollToSection('about')}
-              className="text-white hover:text-cosmic-gold hover:bg-white/10 transition-all duration-300 animate-pulse backdrop-blur-sm"
-              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.6)' }}
-            >
-              <ChevronDown className="mr-2" size={20} />
-              Découvrez qui nous sommes
-              <ChevronDown className="ml-2" size={20} />
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-all duration-1000 delay-1000 ${
-        isLoaded ? 'opacity-100' : 'opacity-0'
-      }`}>
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center backdrop-blur-sm bg-white/10">
-          <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
         </div>
       </div>
     </section>
