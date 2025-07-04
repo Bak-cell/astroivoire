@@ -27,6 +27,11 @@ const PhotoGallery = () => {
 
   const photos = [
     {
+      src: "/lovable-uploads/1d1b52f8-43e9-4cb8-ac82-9a55c85580fb.png",
+      alt: "Équipe AIA ASTROTOUR complète",
+      title: "Grande équipe ASTROTOUR - Découvrez l'Astronomie"
+    },
+    {
       src: "/lovable-uploads/8bfddae1-f69b-4622-9678-10e15e28f463.png",
       alt: "Équipe AIA ASTROTOUR",
       title: "Équipe ASTROTOUR édition Ivoire"
@@ -108,7 +113,6 @@ const PhotoGallery = () => {
           ))}
         </div>
 
-        {/* Modal pour image agrandie */}
         {selectedImage !== null && (
           <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
             <div className="relative max-w-4xl max-h-full">
