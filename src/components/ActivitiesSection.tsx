@@ -1,6 +1,10 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
+import astrotourImage from "@/assets/astrotour-activity.jpg";
+import observationImage from "@/assets/observation-activity.jpg";
+import astropauseImage from "@/assets/astropause-activity.jpg";
+import schoolWorkshopImage from "@/assets/school-workshop-activity.jpg";
 
 const ActivitiesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,25 +32,29 @@ const ActivitiesSection = () => {
       icon: "🌍",
       title: "AstroTour Côte d'Ivoire",
       description: "Tournée scientifique dans les villes du pays pour sensibiliser le grand public, les jeunes et les élèves à l'astronomie.",
-      color: "from-blue-500 to-purple-600"
+      color: "from-blue-500 to-purple-600",
+      image: astrotourImage
     },
     {
       icon: "🌕",
       title: "Soirées d'observation",
       description: "Événements publics pour observer la Lune, les étoiles et les planètes avec des télescopes accessibles à tous.",
-      color: "from-purple-500 to-pink-600"
+      color: "from-purple-500 to-pink-600",
+      image: observationImage
     },
     {
       icon: "🎓",
       title: "AstroPause",
       description: "Conférences à l'université pour débattre des enjeux du spatial ivoirien et africain.",
-      color: "from-indigo-500 to-blue-600"
+      color: "from-indigo-500 to-blue-600",
+      image: astropauseImage
     },
     {
       icon: "🏫",
       title: "Ateliers scolaires",
       description: "Séances éducatives dans les écoles pour initier les plus jeunes à l'astronomie.",
-      color: "from-green-500 to-teal-600"
+      color: "from-green-500 to-teal-600",
+      image: schoolWorkshopImage
     }
   ];
 
@@ -76,10 +84,18 @@ const ActivitiesSection = () => {
                 transitionDelay: `${200 + index * 150}ms`
               }}
             >
-              <CardHeader className="pb-4">
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${activity.color} flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={activity.image} 
+                  alt={activity.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                <div className={`absolute top-4 left-4 w-12 h-12 rounded-full bg-gradient-to-r ${activity.color} flex items-center justify-center text-lg shadow-lg`}>
                   {activity.icon}
                 </div>
+              </div>
+              <CardHeader className="pb-4">
                 <CardTitle className="text-xl font-space text-cosmic-purple group-hover:text-cosmic-blue transition-colors duration-300">
                   {activity.title}
                 </CardTitle>
