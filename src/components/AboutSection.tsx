@@ -1,6 +1,10 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
+import vulgariserImage from "@/assets/vulgariser-mission.jpg";
+import sensibiliserImage from "@/assets/sensibiliser-mission.jpg";
+import organiserImage from "@/assets/organiser-mission.jpg";
+import inclusionImage from "@/assets/inclusion-mission.jpg";
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,22 +31,30 @@ const AboutSection = () => {
     {
       icon: "🌌",
       title: "Vulgariser les sciences de l'univers",
-      description: "Rendre l'astronomie accessible à tous les publics"
+      description: "Rendre l'astronomie accessible à tous les publics",
+      image: vulgariserImage,
+      color: "from-blue-500 to-purple-600"
     },
     {
       icon: "👥",
       title: "Sensibiliser les jeunes",
-      description: "Inspirer les futures générations aux carrières spatiales"
+      description: "Inspirer les futures générations aux carrières spatiales",
+      image: sensibiliserImage,
+      color: "from-purple-500 to-pink-600"
     },
     {
       icon: "🔭",
       title: "Organiser des observations",
-      description: "Conférences et séances d'observation astronomique"
+      description: "Conférences et séances d'observation astronomique",
+      image: organiserImage,
+      color: "from-indigo-500 to-blue-600"
     },
     {
       icon: "⚖️",
       title: "Favoriser l'inclusion",
-      description: "Promouvoir la parité dans les domaines scientifiques"
+      description: "Promouvoir la parité dans les domaines scientifiques",
+      image: inclusionImage,
+      color: "from-green-500 to-teal-600"
     }
   ];
 
@@ -74,18 +86,26 @@ const AboutSection = () => {
             {missions.map((mission, index) => (
               <Card 
                 key={index} 
-                className={`hover:shadow-xl transition-all duration-500 border-0 shadow-md hover:scale-105 ${
+                className={`group hover:shadow-xl transition-all duration-500 border-0 shadow-md hover:scale-105 overflow-hidden ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{
                   transitionDelay: `${400 + index * 100}ms`
                 }}
               >
-                <CardContent className="p-6">
-                  <div className="text-4xl mb-4 transition-transform duration-300 hover:scale-110">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={mission.image} 
+                    alt={mission.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  <div className={`absolute top-4 left-4 w-12 h-12 rounded-full bg-gradient-to-r ${mission.color} flex items-center justify-center text-lg shadow-lg`}>
                     {mission.icon}
                   </div>
-                  <h3 className="font-semibold text-xl text-cosmic-purple mb-3">
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-xl text-cosmic-purple mb-3 group-hover:text-cosmic-blue transition-colors duration-300">
                     {mission.title}
                   </h3>
                   <p className="text-gray-600">
