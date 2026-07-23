@@ -48,7 +48,7 @@ const JoinSection = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Card className={`bg-white/10 backdrop-blur-md border-white/20 shadow-2xl transition-all duration-1000 delay-300 hover:scale-105 ${
+            <Card className={`bg-white/10 backdrop-blur-md border-white/20 shadow-2xl text-white transition-all duration-1000 delay-300 hover:scale-105 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               <CardContent className="p-8 text-center">
