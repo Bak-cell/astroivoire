@@ -27,18 +27,6 @@ const SocialLinks = ({ className = "", iconSize = 20, showLabels = false }: Soci
       color: "hover:text-pink-600"
     },
     {
-      name: "LinkedIn",
-      icon: Linkedin,
-      url: "https://linkedin.com/company/aia-cote-ivoire",
-      color: "hover:text-blue-700"
-    },
-    {
-      name: "YouTube",
-      icon: Youtube,
-      url: "https://youtube.com/@AIA-CoteIvoire",
-      color: "hover:text-red-600"
-    },
-    {
       name: "Twitter",
       icon: Twitter,
       url: "https://twitter.com/AIA_CoteIvoire",
