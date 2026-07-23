@@ -64,10 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				cosmic: {
-					purple: '#4C1D95',
-					blue: '#1E3A8A',
-					gold: '#F59E0B',
-					indigo: '#312E81'
+					purple: 'hsl(var(--cosmic-purple))',
+					blue: 'hsl(var(--cosmic-blue))',
+					gold: 'hsl(var(--cosmic-gold))',
+					indigo: 'hsl(var(--cosmic-indigo))'
 				}
 			},
 			borderRadius: {

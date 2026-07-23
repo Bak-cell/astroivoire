@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Globe, Twitter } from "lucide-react";
+import { Facebook } from "lucide-react";
 
 interface SocialLinksProps {
   className?: string;
@@ -9,27 +9,9 @@ interface SocialLinksProps {
 const SocialLinks = ({ className = "", iconSize = 20, showLabels = false }: SocialLinksProps) => {
   const socialLinks = [
     {
-      name: "Site Web",
-      icon: Globe,
-      url: "https://aia-ci.org",
-      color: "hover:text-blue-600"
-    },
-    {
       name: "Facebook",
       icon: Facebook,
       url: "https://www.facebook.com/Association.Ivoirienne.Astronomie",
-      color: "hover:text-blue-600"
-    },
-    {
-      name: "Instagram",
-      icon: Instagram,
-      url: "https://instagram.com/aia_cote_ivoire",
-      color: "hover:text-pink-600"
-    },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://twitter.com/AIA_CoteIvoire",
       color: "hover:text-blue-400"
     }
   ];

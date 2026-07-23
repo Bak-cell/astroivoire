@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
+import { Rocket } from "lucide-react";
 import JoinForm from "./JoinForm";
 
 const JoinSection = () => {
@@ -36,7 +36,7 @@ const JoinSection = () => {
 
   return (
     <>
-      <section id="join" className="py-20 cosmic-bg star-field text-white" ref={sectionRef}>
+      <section id="join" className="py-20 star-field text-white" ref={sectionRef}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-16 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -48,27 +48,29 @@ const JoinSection = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Card className={`bg-white/10 backdrop-blur-md border-white/20 shadow-2xl transition-all duration-1000 delay-300 hover:scale-105 ${
+            <Card className={`bg-white/10 backdrop-blur-md border-white/20 shadow-2xl text-white transition-all duration-1000 delay-300 hover:scale-105 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <CardContent className="p-8 text-center">
-                <div className="text-6xl mb-6 animate-float">🚀</div>
+              <CardContent className="p-8 text-center text-white">
+                <div className="text-6xl mb-6 animate-float">
+                  <Rocket size={48} className="mx-auto text-cosmic-gold" />
+                </div>
                 
                 <h3 className="font-space text-2xl font-bold mb-6">
                   Rejoignez l'AIA !
                 </h3>
                 
                 <div className="space-y-4 mb-8 text-lg">
-                  <p className="transition-all duration-500 hover:text-cosmic-gold">
+                  <p className="text-white transition-all duration-500 hover:text-cosmic-gold">
                     Vous êtes passionné d'astronomie ou curieux de découvrir l'univers ?
                   </p>
-                  <p className="transition-all duration-500 hover:text-cosmic-gold">
+                  <p className="text-white transition-all duration-500 hover:text-cosmic-gold">
                     Vous êtes enseignant, étudiant ou simplement motivé ?
                   </p>
                 </div>
                 
                 <div className="bg-white/10 rounded-lg p-6 mb-8 transition-all duration-500 hover:bg-white/20">
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-white text-lg leading-relaxed">
                     En devenant membre, vous contribuez activement à l'éducation scientifique, 
                     au développement de l'astronomie et à l'éveil des générations futures.
                   </p>

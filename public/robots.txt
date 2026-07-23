@@ -1,3 +1,5 @@
+Sitemap: https://astroivoire.lovable.app/sitemap.xml
+
 User-agent: Googlebot
 Allow: /
 
