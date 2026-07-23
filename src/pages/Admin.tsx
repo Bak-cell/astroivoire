@@ -97,6 +97,35 @@ export default function Admin() {
     navigate("/auth", { replace: true });
   };
 
+  const exportToCSV = () => {
+    if (memberships.length === 0) {
+      toast({ title: "Aucune donnée à exporter", description: "La liste des demandes est vide." });
+      return;
+    }
+    const headers = ["Date", "Prénom", "Nom", "Email", "Téléphone", "Motivation"];
+    const rows = memberships.map((m) => [
+      new Date(m.created_at).toLocaleDateString("fr-FR"),
+      m.first_name,
+      m.last_name,
+      m.email,
+      m.phone ?? "",
+      m.motivation.replace(/"/g, '""'),
+    ]);
+    const csv = [headers, ...rows]
+      .map((row) => row.map((cell) => `"${cell}"`).join(";"))
+      .join("\n");
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `demandes-adhesion-aia-${new Date().toISOString().split("T")[0]}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast({ title: "Export réussi", description: "Le fichier CSV a été téléchargé." });
+  };
+
   if (loading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
