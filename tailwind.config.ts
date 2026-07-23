@@ -67,7 +67,10 @@ export default {
 					purple: 'hsl(var(--cosmic-purple))',
 					blue: 'hsl(var(--cosmic-blue))',
 					gold: 'hsl(var(--cosmic-gold))',
-					indigo: 'hsl(var(--cosmic-indigo))'
+					indigo: 'hsl(var(--cosmic-indigo))',
+					navy: 'hsl(var(--cosmic-navy))',
+					cyan: 'hsl(var(--cosmic-cyan))',
+					nebula: 'hsl(var(--cosmic-nebula))'
 				}
 			},
 			borderRadius: {
