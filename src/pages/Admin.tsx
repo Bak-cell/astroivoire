@@ -6,7 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, LogOut, Trash2, Mail, Phone, Users, Download } from "lucide-react";
+import { Loader2, LogOut, Trash2, Mail, Phone, Users, Download, FileSpreadsheet } from "lucide-react";
+import * as XLSX from "xlsx";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -126,6 +127,34 @@ export default function Admin() {
     toast({ title: "Export réussi", description: "Le fichier CSV a été téléchargé." });
   };
 
+  const exportToXLSX = () => {
+    if (memberships.length === 0) {
+      toast({ title: "Aucune donnée à exporter", description: "La liste des demandes est vide." });
+      return;
+    }
+    const rows = memberships.map((m) => ({
+      Date: new Date(m.created_at).toLocaleDateString("fr-FR"),
+      Prénom: m.first_name,
+      Nom: m.last_name,
+      Email: m.email,
+      Téléphone: m.phone ?? "",
+      Motivation: m.motivation,
+    }));
+    const worksheet = XLSX.utils.json_to_sheet(rows);
+    worksheet["!cols"] = [
+      { wch: 12 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 28 },
+      { wch: 16 },
+      { wch: 60 },
+    ];
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Demandes");
+    XLSX.writeFile(workbook, `demandes-adhesion-aia-${new Date().toISOString().split("T")[0]}.xlsx`);
+    toast({ title: "Export réussi", description: "Le fichier Excel a été téléchargé." });
+  };
+
   if (loading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
@@ -210,9 +239,14 @@ export default function Admin() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between gap-4">
             <CardTitle>Demandes d'adhésion</CardTitle>
-            <Button variant="outline" size="sm" onClick={exportToCSV}>
-              <Download className="w-4 h-4 mr-2" /> Exporter CSV
-            </Button>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm" onClick={exportToCSV}>
+                <Download className="w-4 h-4 mr-2" /> Exporter CSV
+              </Button>
+              <Button variant="outline" size="sm" onClick={exportToXLSX}>
+                <FileSpreadsheet className="w-4 h-4 mr-2" /> Exporter Excel
+              </Button>
+            </div>
           </CardHeader>
           <CardContent>
             {memberships.length === 0 ? (
