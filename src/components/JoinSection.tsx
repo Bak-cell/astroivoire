@@ -52,7 +52,9 @@ const JoinSection = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               <CardContent className="p-8 text-center">
-                <div className="text-6xl mb-6 animate-float">🚀</div>
+                <div className="text-6xl mb-6 animate-float">
+                  <Rocket size={48} className="mx-auto text-cosmic-gold" />
+                </div>
                 
                 <h3 className="font-space text-2xl font-bold mb-6">
                   Rejoignez l'AIA !

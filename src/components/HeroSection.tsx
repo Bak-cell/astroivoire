@@ -19,10 +19,10 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
       {/* Background image astronomique */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
+          backgroundImage: `url(${heroBg})`
         }}
       />
       

@@ -71,7 +71,7 @@ const PhotoGallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50" ref={sectionRef}>
+    <section id="gallery" className="py-20 bg-muted" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -99,9 +99,10 @@ const PhotoGallery = () => {
             >
               <CardContent className="p-0">
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={photo.src} 
+                  <img
+                    src={photo.src}
                     alt={photo.alt}
+                    loading="lazy"
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
