@@ -5,6 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { X, Mail, User, Phone } from "lucide-react";
+import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface JoinFormProps {
   isOpen: boolean;
@@ -20,12 +23,49 @@ const JoinForm = ({ isOpen, onClose, type }: JoinFormProps) => {
     phone: '',
     motivation: ''
   });
+  const [submitting, setSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const schema = z.object({
+    firstName: z.string().trim().min(1, "Prénom requis").max(100),
+    lastName: z.string().trim().min(1, "Nom requis").max(100),
+    email: z.string().trim().email("Email invalide").max(255),
+    phone: z.string().trim().max(30).optional().or(z.literal("")),
+    motivation: z.string().trim().min(1, "Motivation requise").max(2000),
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Pour l'instant, on simule l'envoi
-    console.log('Formulaire soumis:', { type, ...formData });
-    alert(`Merci ${formData.firstName} ! Votre demande pour devenir ${type === 'member' ? 'membre' : 'bénévole'} a été envoyée.`);
+    const parsed = schema.safeParse(formData);
+    if (!parsed.success) {
+      toast({
+        title: "Formulaire invalide",
+        description: parsed.error.issues[0]?.message ?? "Veuillez vérifier les champs.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setSubmitting(true);
+    const { error } = await supabase.from("memberships").insert({
+      first_name: parsed.data.firstName,
+      last_name: parsed.data.lastName,
+      email: parsed.data.email,
+      phone: parsed.data.phone || null,
+      motivation: parsed.data.motivation,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast({
+        title: "Erreur",
+        description: "Impossible d'envoyer votre demande. Veuillez réessayer.",
+        variant: "destructive",
+      });
+      return;
+    }
+    toast({
+      title: `Merci ${parsed.data.firstName} !`,
+      description: "Votre demande d'adhésion a bien été envoyée.",
+    });
     onClose();
     setFormData({ firstName: '', lastName: '', email: '', phone: '', motivation: '' });
   };
@@ -127,8 +167,8 @@ const JoinForm = ({ isOpen, onClose, type }: JoinFormProps) => {
               />
             </div>
 
-            <Button type="submit" className="w-full bg-cosmic-gold hover:bg-cosmic-gold/90 text-cosmic-purple">
-              {type === 'member' ? 'Rejoindre comme membre' : 'Devenir bénévole'}
+            <Button type="submit" disabled={submitting} className="w-full bg-cosmic-gold hover:bg-cosmic-gold/90 text-cosmic-purple">
+              {submitting ? "Envoi en cours..." : (type === 'member' ? 'Rejoindre comme membre' : 'Devenir bénévole')}
             </Button>
           </form>
         </CardContent>
