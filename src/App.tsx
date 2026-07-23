@@ -3,14 +3,15 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Auth from "./pages/Auth";
-import Admin from "./pages/Admin";
-import JournalList from "./pages/JournalList";
-import JournalArticle from "./pages/JournalArticle";
-import AdminJournal from "./pages/AdminJournal";
-import AdminEvents from "./pages/AdminEvents";
+const Auth = lazy(() => import("./pages/Auth"));
+const Admin = lazy(() => import("./pages/Admin"));
+const JournalList = lazy(() => import("./pages/JournalList"));
+const JournalArticle = lazy(() => import("./pages/JournalArticle"));
+const AdminJournal = lazy(() => import("./pages/AdminJournal"));
+const AdminEvents = lazy(() => import("./pages/AdminEvents"));
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Suspense fallback={<div className="min-h-screen star-field" />}>
         <Routes>
           <Route path="/" element={<Index />} />
         <Route path="/auth" element={<Auth />} />
@@ -31,6 +33,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
