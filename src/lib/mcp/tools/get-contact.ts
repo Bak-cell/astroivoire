@@ -11,7 +11,7 @@ export default defineTool({
       {
         type: "text",
         text: JSON.stringify({
-          email: "contact.aia.ci@gmail.com",
+          email: "associationivoirienneastro@gmail.com",
           address: "UFR SSMT, Université Félix Houphouët-Boigny, Cocody, Abidjan, Côte d'Ivoire",
           social: {
             facebook: "https://www.facebook.com/Association.Ivoirienne.Astronomie",
