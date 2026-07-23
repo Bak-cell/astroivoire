@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import ApodSection from "@/components/ApodSection";
 import SkyTonight from "@/components/SkyTonight";
 import LiveSkyBar from "@/components/LiveSkyBar";
+import ConstellationDivider from "@/components/ConstellationDivider";
 
 const Index = () => {
   return (
@@ -18,9 +19,11 @@ const Index = () => {
       <LiveSkyBar />
       <HeroSection />
       <ApodSection />
+      <ConstellationDivider />
       <AboutSection />
       <ActivitiesSection />
       <SkyTonight />
+      <ConstellationDivider />
       <PhotoGallery />
       <EventsSection />
       <JoinSection />
