@@ -424,6 +424,9 @@ export default function Admin() {
             <Button asChild variant="ghost" size="sm">
               <a href="/admin/journal"><BookOpen className="w-4 h-4 mr-2" />Journal</a>
             </Button>
+            <Button asChild variant="ghost" size="sm">
+              <a href="/admin/events"><CalendarDays className="w-4 h-4 mr-2" />Événements</a>
+            </Button>
             <Button variant="outline" size="sm" onClick={handleSignOut}>
               <LogOut className="w-4 h-4 mr-2" /> Déconnexion
             </Button>
