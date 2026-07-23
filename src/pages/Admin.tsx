@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, LogOut, Trash2, Mail, Phone, Users } from "lucide-react";
+import { Loader2, LogOut, Trash2, Mail, Phone, Users, Download } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
