@@ -265,6 +265,9 @@ export default function AdminJournal() {
               <Link to="/admin"><ArrowLeft className="w-4 h-4 mr-2" />Adhésions</Link>
             </Button>
             <Button asChild variant="ghost" size="sm">
+              <Link to="/admin/events">Événements</Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
               <Link to="/journal" target="_blank"><ExternalLink className="w-4 h-4 mr-2" />Voir le site</Link>
             </Button>
             <Button variant="outline" size="sm" onClick={handleSignOut}>

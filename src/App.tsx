@@ -10,6 +10,7 @@ import Admin from "./pages/Admin";
 import JournalList from "./pages/JournalList";
 import JournalArticle from "./pages/JournalArticle";
 import AdminJournal from "./pages/AdminJournal";
+import AdminEvents from "./pages/AdminEvents";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
         <Route path="/auth" element={<Auth />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/journal" element={<AdminJournal />} />
+        <Route path="/admin/events" element={<AdminEvents />} />
         <Route path="/journal" element={<JournalList />} />
         <Route path="/journal/:slug" element={<JournalArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
