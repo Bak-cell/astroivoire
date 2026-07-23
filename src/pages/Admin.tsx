@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, LogOut, Trash2, Mail, Phone, Users } from "lucide-react";
+import { Loader2, LogOut, Trash2, Mail, Phone, Users, Download } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -97,6 +97,35 @@ export default function Admin() {
     navigate("/auth", { replace: true });
   };
 
+  const exportToCSV = () => {
+    if (memberships.length === 0) {
+      toast({ title: "Aucune donnée à exporter", description: "La liste des demandes est vide." });
+      return;
+    }
+    const headers = ["Date", "Prénom", "Nom", "Email", "Téléphone", "Motivation"];
+    const rows = memberships.map((m) => [
+      new Date(m.created_at).toLocaleDateString("fr-FR"),
+      m.first_name,
+      m.last_name,
+      m.email,
+      m.phone ?? "",
+      m.motivation.replace(/"/g, '""'),
+    ]);
+    const csv = [headers, ...rows]
+      .map((row) => row.map((cell) => `"${cell}"`).join(";"))
+      .join("\n");
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `demandes-adhesion-aia-${new Date().toISOString().split("T")[0]}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast({ title: "Export réussi", description: "Le fichier CSV a été téléchargé." });
+  };
+
   if (loading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
@@ -179,8 +208,11 @@ export default function Admin() {
         </div>
 
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between gap-4">
             <CardTitle>Demandes d'adhésion</CardTitle>
+            <Button variant="outline" size="sm" onClick={exportToCSV}>
+              <Download className="w-4 h-4 mr-2" /> Exporter CSV
+            </Button>
           </CardHeader>
           <CardContent>
             {memberships.length === 0 ? (
