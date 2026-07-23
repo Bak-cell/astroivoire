@@ -1,55 +1,59 @@
-Plan d'améliorations du site AIA
+# Moderniser la page /admin
 
-### État actuel
-Le site est une landing page complète : Hero, À propos, Activités, Galerie, Événements, Adhésion, Contact. Les visuels et les animations sont en place. Plusieurs leviers d'amélioration restent exploitables.
+Voici ce que je te propose pour transformer le tableau admin en un vrai cockpit moderne, cohérent avec l'identité cosmique du site.
 
-### Recommandations proposées
+## 1. Identité visuelle cohérente avec le site
+- Appliquer le fond `star-field` + dégradé cosmique (au lieu du fond neutre actuel).
+- Header admin sticky avec logo AIA + titre + email connecté + bouton déconnexion.
+- Cartes en glassmorphism (bord lumineux, backdrop-blur) comme le reste du site.
+- Palette : primary/accent déjà définis, ajout d'un accent doré discret pour les KPIs.
 
-#### 1. Cohérence du design system et accessibilité
-- Remplacer les couleurs en dur (`text-gray-600`, `bg-gray-50`, `bg-white`, etc.) par les tokens sémantiques du projet (`--muted`, `--background`, `--card`, etc.).
-- Convertir les couleurs cosmic du `tailwind.config.ts` en HSL pour respecter le format du design system.
-- Uniformiser les icônes : remplacer les emojis (📅, 📍, 🚀, 🌌, etc.) par des icônes Lucide cohérentes avec le thème astronomique.
-- Améliorer les contrastes et les états focus du menu mobile.
+## 2. Statistiques enrichies (KPIs)
+Aujourd'hui : 3 cartes (Total, Avec téléphone, Cette semaine).
+Ajouter :
+- **Ce mois-ci** (nouvelles demandes du mois en cours)
+- **Aujourd'hui** (demandes du jour)
+- **Taux avec téléphone** (%)
+- **Mini graphique** : évolution des demandes sur les 30 derniers jours (sparkline via recharts).
 
-#### 2. Contenu réel et remplacement des placeholders
-- Supprimer ou remplacer le numéro de téléphone fictif `+225 01 23 45 67` dans le footer par le vrai numéro de l'AIA (ou le retirer si non disponible).
-- Vérifier les liens sociaux (Twitter, Instagram, Site Web) et ne conserver que ceux qui existent vraiment.
-- Mettre à jour les dates des événements : les dates actuelles sont en 2025, certaines peuvent être dépassées.
-- Remplacer l'image hero distante Unsplash par une image AIA locale ou une image générée sur mesure.
+## 3. Recherche, filtres et tri
+- Barre de recherche instantanée (nom, email, motivation).
+- Filtres rapides : « Cette semaine », « Ce mois », « Avec téléphone », « Tout ».
+- Tri cliquable sur les colonnes (date, nom, email).
+- Compteur dynamique « X résultat(s) sur Y ».
 
-#### 3. Formulaire d'adhésion fonctionnel
-- Connecter le formulaire "Devenir membre" à une base de données (Lovable Cloud) via une table `memberships` avec RLS.
-- Afficher un état de chargement, un message de succès/erreur, et envoyer une notification email à l'équipe AIA si possible.
-- Valider les champs côté client et côté serveur.
+## 4. Vue détaillée d'une demande
+- Clic sur une ligne → panneau latéral (Sheet) avec :
+  - Toutes les infos (motivation complète, non tronquée)
+  - Boutons rapides : « Répondre par email », « Appeler », « Copier les infos »
+  - Date au format long (ex. « 15 octobre 2026 à 14:32 »)
 
-#### 4. SEO et métadonnées
-- Ajouter une balise `link rel="canonical"` dans `index.html`.
-- Remplacer l'image OpenGraph générique Lovable par une image AIA personnalisée.
-- Ajouter un `robots.txt` et un `sitemap.xml` adaptés aux sections du site.
-- Ajouter les attributs `alt` et `loading="lazy"` optimisés sur les images de la galerie et des activités.
+## 5. Actions groupées
+- Cases à cocher sur les lignes.
+- Barre d'actions flottante : « Exporter la sélection (CSV/Excel) », « Supprimer la sélection ».
+- Bouton « Tout sélectionner » dans l'entête.
 
-#### 5. Nouvelles sections pour enrichir le site
-- **Témoignages** : extraits de membres, participants, enseignants.
-- **Équipe / membres fondateurs** : photos et rôles de quelques visages de l'AIA.
-- **Partenaires / sponsors** : logos des institutions, écoles ou entreprises partenaires.
-- **FAQ adhésion** : questions fréquentes sur les statuts, cotisations et activités.
-- **Newsletter** : champ email simple pour recevoir les prochains événements.
+## 6. Pagination et performance
+- Pagination (20 par page) ou scroll infini si tu préfères.
+- Skeleton loaders pendant le chargement (au lieu du simple spinner plein écran).
 
-#### 6. Performance et image
-- Convertir les images de la galerie et des activités en formats optimisés si nécessaire.
-- Ajouter du lazy loading sur les images hors écran.
-- Réduire la taille de l'image hero et ajouter une version mobile plus légère.
+## 7. Améliorations UX
+- Toasts déjà en place → on garde, mais on ajoute une confirmation visuelle après suppression (undo pendant 5s).
+- Format de date localisé et relatif (« il y a 2 jours »).
+- Empty state illustré quand il n'y a aucune demande (au lieu du texte simple).
+- Responsive mobile : les colonnes se transforment en cartes empilées sur petit écran.
 
-#### 7. Micro-interactions et expérience utilisateur
-- Ajouter une barre de progression de lecture en haut de page.
-- Animer les compteurs (nombre de membres, événements réalisés, écoles touchées) si des données sont disponibles.
-- Ajouter un effet de surbrillance dans la navigation indiquant la section active au scroll.
-- Améliorer le menu mobile avec une transition fluide et un overlay.
+## 8. Sécurité & robustesse
+- Bouton « Rafraîchir » manuel + auto-refresh optionnel (toutes les 60s).
+- Indicateur temps réel via Supabase Realtime : nouvelle demande → notification instantanée + toast « Nouvelle demande de X ».
 
-### Phasage proposé
-- **Phase 1 (rapide)** : points 1, 2 et 4. Gain immédiat en qualité et crédibilité.
-- **Phase 2 (fonctionnel)** : point 3. Permet de réellement collecter les adhésions.
-- **Phase 3 (enrichissement)** : points 5, 6 et 7. Passe le site au niveau institutionnel.
+## Détails techniques
+- Composants shadcn utilisés : `Sheet` (détail), `Checkbox`, `Input` (recherche), `Select` (filtres), `Skeleton`, `Pagination`.
+- Recharts pour la sparkline (déjà présent dans les dépendances Lovable).
+- `date-fns` avec locale FR pour les dates relatives.
+- Realtime : abonnement à `postgres_changes` sur la table `memberships`.
+- Aucun changement de schéma DB nécessaire.
 
-### Décision à prendre
-Indique-moi quels points tu veux implémenter. Je te recommande de commencer par la Phase 1, puis d'ajouter la Phase 2 si tu veux recevoir les demandes d'adhésion par email.
+---
+
+Dis-moi lesquels de ces blocs tu veux que je livre en priorité (ou « tout » si tu veux la refonte complète d'un coup).
