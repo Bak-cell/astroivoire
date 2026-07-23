@@ -80,7 +80,7 @@ const PhotoGallery = () => {
             Galerie photos
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cosmic-purple to-cosmic-gold mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Découvrez nos observations, événements et moments partagés sous les étoiles
           </p>
         </div>

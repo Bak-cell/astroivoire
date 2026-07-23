@@ -56,7 +56,7 @@ const JoinForm = ({ isOpen, onClose, type }: JoinFormProps) => {
               <div>
                 <Label htmlFor="firstName">Prénom</Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                   <Input
                     id="firstName"
                     name="firstName"
@@ -70,7 +70,7 @@ const JoinForm = ({ isOpen, onClose, type }: JoinFormProps) => {
               <div>
                 <Label htmlFor="lastName">Nom</Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                   <Input
                     id="lastName"
                     name="lastName"
@@ -86,7 +86,7 @@ const JoinForm = ({ isOpen, onClose, type }: JoinFormProps) => {
             <div>
               <Label htmlFor="email">Email</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                 <Input
                   id="email"
                   name="email"
@@ -102,7 +102,7 @@ const JoinForm = ({ isOpen, onClose, type }: JoinFormProps) => {
             <div>
               <Label htmlFor="phone">Téléphone</Label>
               <div className="relative">
-                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                 <Input
                   id="phone"
                   name="phone"
