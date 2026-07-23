@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Globe, Youtube, Twitter } from "lucide-react";
+import { Facebook, Instagram, Globe, Twitter } from "lucide-react";
 
 interface SocialLinksProps {
   className?: string;
@@ -25,18 +25,6 @@ const SocialLinks = ({ className = "", iconSize = 20, showLabels = false }: Soci
       icon: Instagram,
       url: "https://instagram.com/aia_cote_ivoire",
       color: "hover:text-pink-600"
-    },
-    {
-      name: "LinkedIn",
-      icon: Linkedin,
-      url: "https://linkedin.com/company/aia-cote-ivoire",
-      color: "hover:text-blue-700"
-    },
-    {
-      name: "YouTube",
-      icon: Youtube,
-      url: "https://youtube.com/@AIA-CoteIvoire",
-      color: "hover:text-red-600"
     },
     {
       name: "Twitter",
