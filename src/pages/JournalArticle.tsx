@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -44,9 +45,6 @@ export default function JournalArticle() {
         setNotFound(true);
       } else {
         setArticle(data);
-        document.title = `${data.title} | Journal AIA`;
-        const meta = document.querySelector('meta[name="description"]');
-        if (meta) meta.setAttribute("content", data.excerpt);
       }
       setLoading(false);
     };
@@ -94,6 +92,27 @@ export default function JournalArticle() {
 
   return (
     <main className="dark min-h-screen star-field text-foreground">
+      <Helmet>
+        <title>{`${article.title} | Journal AIA`}</title>
+        <meta name="description" content={article.excerpt} />
+        <link rel="canonical" href={`https://astroivoire.lovable.app/journal/${article.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.excerpt} />
+        <meta property="og:url" content={`https://astroivoire.lovable.app/journal/${article.slug}`} />
+        {article.cover_image && <meta property="og:image" content={article.cover_image} />}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: article.title,
+          description: article.excerpt,
+          image: article.cover_image || undefined,
+          datePublished: article.published_at,
+          author: article.author_name ? { "@type": "Person", name: article.author_name } : undefined,
+          publisher: { "@type": "Organization", name: "Association Ivoirienne d'Astronomie" },
+          mainEntityOfPage: `https://astroivoire.lovable.app/journal/${article.slug}`,
+        })}</script>
+      </Helmet>
       <article className="container mx-auto px-4 py-16 md:py-24 max-w-3xl">
         <Link
           to="/journal"
