@@ -62,6 +62,95 @@ export type Database = {
         }
         Relationships: []
       }
+      event_registrations: {
+        Row: {
+          created_at: string
+          email: string
+          event_id: string
+          first_name: string
+          id: string
+          last_name: string
+          phone: string | null
+          seats: number
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          event_id: string
+          first_name: string
+          id?: string
+          last_name: string
+          phone?: string | null
+          seats?: number
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          event_id?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          phone?: string | null
+          seats?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_registrations_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          capacity: number | null
+          cover_image: string | null
+          created_at: string
+          description: string
+          ends_at: string | null
+          event_type: string
+          id: string
+          location: string
+          published: boolean
+          registration_open: boolean
+          starts_at: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          capacity?: number | null
+          cover_image?: string | null
+          created_at?: string
+          description: string
+          ends_at?: string | null
+          event_type?: string
+          id?: string
+          location: string
+          published?: boolean
+          registration_open?: boolean
+          starts_at: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          capacity?: number | null
+          cover_image?: string | null
+          created_at?: string
+          description?: string
+          ends_at?: string | null
+          event_type?: string
+          id?: string
+          location?: string
+          published?: boolean
+          registration_open?: boolean
+          starts_at?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       memberships: {
         Row: {
           created_at: string
