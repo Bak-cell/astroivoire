@@ -40,6 +40,7 @@ import {
   Inbox,
   ArrowUpDown,
   X,
+  BookOpen,
 } from "lucide-react";
 import * as XLSX from "xlsx";
 import { formatDistanceToNow, format, startOfDay, subDays, isSameDay } from "date-fns";
@@ -419,6 +420,9 @@ export default function Admin() {
             <Button variant="ghost" size="sm" onClick={handleRefresh} disabled={refreshing}>
               <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? "animate-spin" : ""}`} />
               Actualiser
+            </Button>
+            <Button asChild variant="ghost" size="sm">
+              <a href="/admin/journal"><BookOpen className="w-4 h-4 mr-2" />Journal</a>
             </Button>
             <Button variant="outline" size="sm" onClick={handleSignOut}>
               <LogOut className="w-4 h-4 mr-2" /> Déconnexion

@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -65,6 +66,12 @@ const Header = () => {
             >
               Événements
             </button>
+            <Link
+              to="/journal"
+              className="text-foreground hover:text-cosmic-purple transition-colors"
+            >
+              Journal
+            </Link>
             <button
               onClick={() => scrollToSection('contact')}
               className="text-foreground hover:text-cosmic-purple transition-colors"
@@ -117,6 +124,13 @@ const Header = () => {
               >
                 Événements
               </button>
+              <Link
+                to="/journal"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-left text-foreground hover:text-cosmic-purple transition-colors"
+              >
+                Journal
+              </Link>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="text-left text-foreground hover:text-cosmic-purple transition-colors"
