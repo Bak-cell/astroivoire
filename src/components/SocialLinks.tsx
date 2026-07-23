@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Globe, Youtube, Twitter } from "lucide-react";
+import { Facebook, Instagram, Globe, Twitter } from "lucide-react";
 
 interface SocialLinksProps {
   className?: string;
