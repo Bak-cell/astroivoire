@@ -42,6 +42,12 @@ const Header = () => {
               À propos
             </button>
             <button
+              onClick={() => scrollToSection('sky')}
+              className="text-foreground hover:text-cosmic-purple transition-colors"
+            >
+              Ciel ce soir
+            </button>
+            <button
               onClick={() => scrollToSection('activities')}
               className="text-foreground hover:text-cosmic-purple transition-colors"
             >
