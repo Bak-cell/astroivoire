@@ -15,58 +15,59 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b">
+    <header className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/9853356d-36e8-4c7c-bbd5-00a3a9d142fc.png" 
+              <img
+                src="/lovable-uploads/9853356d-36e8-4c7c-bbd5-00a3a9d142fc.png"
                 alt="Logo AIA"
+                loading="lazy"
                 className="w-12 h-12 object-contain"
               />
             </div>
             <div>
               <h1 className="font-space font-bold text-xl text-cosmic-purple">AIA</h1>
-              <p className="text-xs text-gray-600">Association Ivoirienne d'Astronomie</p>
+              <p className="text-xs text-muted-foreground">Association Ivoirienne d'Astronomie</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button 
+            <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-cosmic-purple transition-colors"
+              className="text-foreground hover:text-cosmic-purple transition-colors"
             >
               À propos
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('activities')}
-              className="text-gray-700 hover:text-cosmic-purple transition-colors"
+              className="text-foreground hover:text-cosmic-purple transition-colors"
             >
               Activités
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('gallery')}
-              className="text-gray-700 hover:text-cosmic-purple transition-colors"
+              className="text-foreground hover:text-cosmic-purple transition-colors"
             >
               Galerie
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('events')}
-              className="text-gray-700 hover:text-cosmic-purple transition-colors"
+              className="text-foreground hover:text-cosmic-purple transition-colors"
             >
               Événements
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-cosmic-purple transition-colors"
+              className="text-foreground hover:text-cosmic-purple transition-colors"
             >
               Contact
             </button>
-            <Button 
+            <Button
               onClick={() => scrollToSection('join')}
-              className="bg-gradient-to-r from-cosmic-purple to-cosmic-blue hover:from-cosmic-blue hover:to-cosmic-purple"
+              className="bg-gradient-to-r from-cosmic-purple to-cosmic-blue hover:from-cosmic-blue hover:to-cosmic-purple text-white"
             >
               Nous rejoindre
             </Button>
@@ -74,8 +75,9 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="md:hidden text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -85,39 +87,39 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t pt-4">
             <div className="flex flex-col space-y-4">
-              <button 
+              <button
                 onClick={() => scrollToSection('about')}
-                className="text-left text-gray-700 hover:text-cosmic-purple transition-colors"
+                className="text-left text-foreground hover:text-cosmic-purple transition-colors"
               >
                 À propos
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('activities')}
-                className="text-left text-gray-700 hover:text-cosmic-purple transition-colors"
+                className="text-left text-foreground hover:text-cosmic-purple transition-colors"
               >
                 Activités
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('gallery')}
-                className="text-left text-gray-700 hover:text-cosmic-purple transition-colors"
+                className="text-left text-foreground hover:text-cosmic-purple transition-colors"
               >
                 Galerie
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('events')}
-                className="text-left text-gray-700 hover:text-cosmic-purple transition-colors"
+                className="text-left text-foreground hover:text-cosmic-purple transition-colors"
               >
                 Événements
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
-                className="text-left text-gray-700 hover:text-cosmic-purple transition-colors"
+                className="text-left text-foreground hover:text-cosmic-purple transition-colors"
               >
                 Contact
               </button>
-              <Button 
+              <Button
                 onClick={() => scrollToSection('join')}
-                className="bg-gradient-to-r from-cosmic-purple to-cosmic-blue hover:from-cosmic-blue hover:to-cosmic-purple w-full"
+                className="bg-gradient-to-r from-cosmic-purple to-cosmic-blue hover:from-cosmic-blue hover:to-cosmic-purple text-white w-full"
               >
                 Nous rejoindre
               </Button>
