@@ -51,7 +51,7 @@ const JoinSection = () => {
             <Card className={`bg-white/10 backdrop-blur-md border-white/20 shadow-2xl text-white transition-all duration-1000 delay-300 hover:scale-105 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-8 text-center text-white">
                 <div className="text-6xl mb-6 animate-float">
                   <Rocket size={48} className="mx-auto text-cosmic-gold" />
                 </div>
@@ -61,16 +61,16 @@ const JoinSection = () => {
                 </h3>
                 
                 <div className="space-y-4 mb-8 text-lg">
-                  <p className="transition-all duration-500 hover:text-cosmic-gold">
+                  <p className="text-white transition-all duration-500 hover:text-cosmic-gold">
                     Vous êtes passionné d'astronomie ou curieux de découvrir l'univers ?
                   </p>
-                  <p className="transition-all duration-500 hover:text-cosmic-gold">
+                  <p className="text-white transition-all duration-500 hover:text-cosmic-gold">
                     Vous êtes enseignant, étudiant ou simplement motivé ?
                   </p>
                 </div>
                 
                 <div className="bg-white/10 rounded-lg p-6 mb-8 transition-all duration-500 hover:bg-white/20">
-                  <p className="text-lg leading-relaxed">
+                  <p className="text-white text-lg leading-relaxed">
                     En devenant membre, vous contribuez activement à l'éducation scientifique, 
                     au développement de l'astronomie et à l'éveil des générations futures.
                   </p>
