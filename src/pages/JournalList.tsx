@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -33,10 +34,6 @@ export default function JournalList() {
   const [category, setCategory] = useState<string>("all");
 
   useEffect(() => {
-    document.title = "Journal | AIA — Association Ivoirienne d'Astronomie";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Actualités, récits d'observation et articles scientifiques de l'Association Ivoirienne d'Astronomie.");
-
     const load = async () => {
       setLoading(true);
       const { data } = await supabase
@@ -54,6 +51,15 @@ export default function JournalList() {
 
   return (
     <main className="dark min-h-screen star-field text-foreground">
+      <Helmet>
+        <title>Journal | AIA — Association Ivoirienne d'Astronomie</title>
+        <meta name="description" content="Actualités, récits d'observation et articles scientifiques de l'Association Ivoirienne d'Astronomie." />
+        <link rel="canonical" href="https://astroivoire.lovable.app/journal" />
+        <meta property="og:title" content="Journal AIA — Nos récits du cosmos" />
+        <meta property="og:description" content="Actualités, comptes-rendus d'observation et regards scientifiques signés par les membres de l'AIA." />
+        <meta property="og:url" content="https://astroivoire.lovable.app/journal" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="container mx-auto px-4 py-16 md:py-24 max-w-6xl">
         <Link
           to="/"
