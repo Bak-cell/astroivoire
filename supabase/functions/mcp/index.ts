@@ -124,7 +124,7 @@ var get_contact_default = defineTool5({
       {
         type: "text",
         text: JSON.stringify({
-          email: "contact.aia.ci@gmail.com",
+          email: "associationivoirienneastro@gmail.com",
           address: "UFR SSMT, Universit\xE9 F\xE9lix Houphou\xEBt-Boigny, Cocody, Abidjan, C\xF4te d'Ivoire",
           social: {
             facebook: "https://www.facebook.com/Association.Ivoirienne.Astronomie"

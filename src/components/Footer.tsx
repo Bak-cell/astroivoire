@@ -36,8 +36,8 @@ const Footer = () => {
             <div className="space-y-3 text-gray-300">
               <div className="flex items-center space-x-2">
                 <span>📧</span>
-                <a href="mailto:contact.aia.ci@gmail.com" className="hover:text-cosmic-gold transition-colors">
-                  contact.aia.ci@gmail.com
+                <a href="mailto:associationivoirienneastro@gmail.com" className="hover:text-cosmic-gold transition-colors">
+                  associationivoirienneastro@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-2">
