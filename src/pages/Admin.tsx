@@ -208,8 +208,11 @@ export default function Admin() {
         </div>
 
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between gap-4">
             <CardTitle>Demandes d'adhésion</CardTitle>
+            <Button variant="outline" size="sm" onClick={exportToCSV}>
+              <Download className="w-4 h-4 mr-2" /> Exporter CSV
+            </Button>
           </CardHeader>
           <CardContent>
             {memberships.length === 0 ? (
