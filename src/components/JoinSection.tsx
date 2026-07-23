@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
+import { Rocket } from "lucide-react";
 import JoinForm from "./JoinForm";
 
 const JoinSection = () => {

@@ -1,6 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);

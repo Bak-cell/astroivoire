@@ -1,7 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useRef, useState } from "react";
+import { Calendar, MapPin } from "lucide-react";
 
 const EventsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
